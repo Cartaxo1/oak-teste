@@ -2,7 +2,12 @@ import { Component, inject } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Products } from '../../interfaces/products.model';
 import { PrimengModule } from '../../modules/primeng/primeng.module';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 interface newProductForm {
   name: FormControl<string | null>;
@@ -27,6 +32,7 @@ export class HomeComponent {
   products: Products[] = [];
   visible: boolean = false;
   disponibilidade: Available[];
+  isLoading: boolean = false;
 
   private _formBuilder = inject(FormBuilder);
 
@@ -49,8 +55,12 @@ export class HomeComponent {
 
   getProducts() {
     this.productsService.getProducts().subscribe((res) => {
+      this.isLoading = true;
       this.products = res;
       console.log(res);
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
     });
   }
 
@@ -63,8 +73,10 @@ export class HomeComponent {
         available: this.form.value.available || false,
       };
       this.productsService.addProduct(product).subscribe((res) => {
+        this.isLoading = true;
         this.products.push(res);
         this.getProducts();
+        this.isLoading = false;
         this.form.reset();
         this.visible = false;
       });

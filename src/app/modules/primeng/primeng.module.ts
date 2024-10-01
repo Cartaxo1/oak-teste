@@ -5,6 +5,7 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     InputTextModule,
     DropdownModule,
+    ProgressSpinnerModule,
   ],
   exports: [
     ButtonModule,
@@ -22,6 +24,7 @@ import { DropdownModule } from 'primeng/dropdown';
     DialogModule,
     InputTextModule,
     DropdownModule,
+    ProgressSpinnerModule,
   ],
 })
 export class PrimengModule {}
