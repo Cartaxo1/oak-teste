@@ -1,3 +1,19 @@
-<div>
-  <p-button label="Submit" />
-</div>
+<p-button label="Submit" />
+<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Dísponivel</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.value }}</td>
+      <td>{{ product.available ? "Disponível" : "Indisponível" }}</td>
+    </tr>
+  </ng-template>
+</p-table>
