@@ -26,7 +26,7 @@ interface Available {
   selector: 'app-home',
   standalone: true,
   imports: [PrimengModule, ReactiveFormsModule],
-  providers: [MessageService],
+  providers: [MessageService, ProductsService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -46,7 +46,7 @@ export class HomeComponent {
   });
 
 
-  constructor(private productsService: ProductsService, private messageService: MessageService) {
+  constructor(private productsService: ProductsService, private messageService: MessageService, private productService : ProductsService) {
     this.disponibilidade = [
       { value: 'true', label: 'Disponível' },
       { value: 'false', label: 'Indisponível' },
@@ -55,6 +55,7 @@ export class HomeComponent {
 
   ngOnInit() {
     this.getProducts();
+
   }
 
   getProducts() {
@@ -70,6 +71,7 @@ export class HomeComponent {
 
   addProduct() {
     if (this.form.valid) {
+
       const product: Products = {
         name: this.form.value.name || '',
         description: this.form.value.description || '',
