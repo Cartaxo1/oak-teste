@@ -21,4 +21,13 @@ export class ProductsService {
       },
     });
   }
+
+  addProduct(product: Products): Observable<Products> {
+    return this.http.post<Products>(this.apiUrl, product, {
+      headers: {
+        apikey: this.apiKey,
+        Authorization: `Bearer ${this.apiKey}`,
+      },
+    });
+  }
 }
