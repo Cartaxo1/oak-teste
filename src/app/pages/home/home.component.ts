@@ -8,6 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 interface newProductForm {
   name: FormControl<string | null>;
@@ -25,6 +26,7 @@ interface Available {
   selector: 'app-home',
   standalone: true,
   imports: [PrimengModule, ReactiveFormsModule],
+  providers: [MessageService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -42,7 +44,9 @@ export class HomeComponent {
     value: this._formBuilder.control(0, Validators.required),
     available: this._formBuilder.control(false, Validators.required),
   });
-  constructor(private productsService: ProductsService) {
+
+
+  constructor(private productsService: ProductsService, private messageService: MessageService) {
     this.disponibilidade = [
       { value: 'true', label: 'Disponível' },
       { value: 'false', label: 'Indisponível' },
@@ -76,6 +80,7 @@ export class HomeComponent {
         this.isLoading = true;
         this.products.push(res);
         this.getProducts();
+        this.showSuccess();
         this.isLoading = false;
         this.form.reset();
         this.visible = false;
@@ -84,5 +89,12 @@ export class HomeComponent {
   }
   showDialog() {
     this.visible = true;
+  }
+  showSuccess() {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Successo',
+      detail: 'Produto adicionado com sucesso!',
+    });
   }
 }
