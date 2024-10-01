@@ -1,27 +1,38 @@
-# OakTeste
+# MyAngularApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+Este projeto é uma aplicação Angular utilizando PrimeNG, PrimeFlex e Supabase para o backend, com deploy na Vercel. O objetivo é fornecer uma interface ágil para gerenciamento de produtos, aproveitando a flexibilidade do Supabase para armazenamento de dados e APIs.
 
-## Development server
+## Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Angular**: Framework para desenvolvimento de aplicações web SPA.
+- **PrimeNG**: Biblioteca de componentes UI para Angular.
+- **PrimeFlex**: Framework CSS responsivo e utilitário.
+- **Supabase**: Backend para a gestão dos dados via APIs e tabelas SQL.
+- **Vercel**: Plataforma de deploy para aplicações frontend.
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Tabela de Produtos**: Criação, leitura e listagem de produtos a partir de uma tabela no Supabase.
 
-## Build
+A tabela `Products` contém os seguintes campos:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- `name` (string): Nome do produto
+- `description` (string): Descrição do produto
+- `value` (number): Valor do produto
+- `available` (boolean): Disponibilidade do produto
 
-## Running unit tests
+## Requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Certifique-se de ter as seguintes ferramentas instaladas:
 
-## Running end-to-end tests
+- Node.js (versão 14.x ou superior)
+- Angular CLI
+- Supabase CLI
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Instalação
 
-## Further help
+Clone este repositório
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Arquitetura
+
+![img](https://media.discordapp.net/attachments/1020424507875401739/1290765591019520212/image.png?ex=66fda6a2&is=66fc5522&hm=ba4999121f39f4942f08418174f723ecf99a6a63e8d8b8bc9911966e1744aabc&=&format=webp&quality=lossless&width=1440&height=668)
