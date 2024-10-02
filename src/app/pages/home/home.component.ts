@@ -45,8 +45,11 @@ export class HomeComponent {
     available: this._formBuilder.control(false, Validators.required),
   });
 
-
-  constructor(private productsService: ProductsService, private messageService: MessageService, private productService : ProductsService) {
+  constructor(
+    private productsService: ProductsService,
+    private messageService: MessageService,
+    private productService: ProductsService
+  ) {
     this.disponibilidade = [
       { value: 'true', label: 'Disponível' },
       { value: 'false', label: 'Indisponível' },
@@ -55,7 +58,6 @@ export class HomeComponent {
 
   ngOnInit() {
     this.getProducts();
-
   }
 
   getProducts() {
@@ -71,6 +73,7 @@ export class HomeComponent {
 
   addProduct() {
     if (this.form.valid) {
+
 
       const product: Products = {
         name: this.form.value.name || '',

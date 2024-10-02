@@ -25,7 +25,7 @@
       <tr>
         <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.value }}</td>
+        <td>{{ product.value | currency: 'BRL' }}</td>
         <td>{{ product.available ? "Disponível" : "Indisponível" }}</td>
       </tr>
     </ng-template>

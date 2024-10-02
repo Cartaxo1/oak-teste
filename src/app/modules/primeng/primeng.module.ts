@@ -30,7 +30,8 @@ import { RippleModule } from 'primeng/ripple';
     DropdownModule,
     ProgressSpinnerModule,
     ToastModule,
-    RippleModule
+    RippleModule,
+    CommonModule
   ],
 })
 export class PrimengModule {}
